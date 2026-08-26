@@ -7,7 +7,7 @@ Run locally with:
 from fastapi import FastAPI
 
 from app.core.database import Base, engine
-from app.routers import companies, employees
+from app.routers import companies, employees, attendance_log, shift, leave
 
 # Import models so they're registered on Base.metadata before create_all runs.
 import app.models  # noqa: F401
@@ -38,3 +38,6 @@ def health_check():
 
 app.include_router(companies.router)
 app.include_router(employees.router)
+app.include_router(attendance_log.router)
+app.include_router(shift.router)
+app.include_router(leave.router)
